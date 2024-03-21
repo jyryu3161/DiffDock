@@ -74,8 +74,17 @@ current repo
 
 To set up an appropriate environment, navigate to the root of the repository and run the following commands:
 
-    conda env create --file environment.yml
+    conda create -n diffdock python=3.9.18
     conda activate diffdock
+    
+    conda install pytorch==1.13.1 pytorch-cuda=11.7 -c pytorch -c nvidia
+    pip install torch-scatter==2.0.9 torch-sparse==0.6.15 torch-cluster==1.6.0 torch-spline-conv==1.2.1 torch-geometric==2.0.4 -f https://data.pyg.org/whl/torch-1.13.0+cu117.html
+    python -m pip install PyYAML scipy "networkx[default]" biopython rdkit-pypi e3nn spyrmsd pandas biopandas 
+    pip install prody
+    
+    pip install "fair-esm[esmfold]"
+    pip install 'dllogger @ git+https://github.com/NVIDIA/dllogger.git'
+    pip install 'openfold @ git+https://github.com/aqlaboratory/openfold.git@4b41059694619831a7db195b7e0988fc4ff3a307'
 
 See [conda documentation](https://conda.io/projects/conda/en/latest/commands/env/create.html) for more information.
 
